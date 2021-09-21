@@ -1,3 +1,4 @@
+import { NativeBaseProvider, extendTheme, themeTools } from 'native-base';
 import React, {useEffect,useState} from 'react';
 import { ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native';
@@ -14,6 +15,18 @@ const DetailsScreen = ({navigation, route}) => {
     var newStr = str.replace(" ","+");
     return newStr;
   }
+
+  const theme = extendTheme({
+    components: {
+      Heading: {
+        baseStyle: (props) => {
+          return {
+            color: themeTools.mode('red.300', 'blue.300')(props),
+          };
+        },
+      },
+    },
+  });
   
   const arr = [1,2,3];
   useEffect(() =>{
@@ -32,7 +45,8 @@ const DetailsScreen = ({navigation, route}) => {
   }, []);
     
     return (
-      <View style={styles.mainView}>
+     
+          <View style={styles.mainView}>
         <SafeAreaView>
           <ScrollView>
           {
@@ -87,6 +101,8 @@ const DetailsScreen = ({navigation, route}) => {
           
           
       </View>
+    
+      
     )
 };
 
