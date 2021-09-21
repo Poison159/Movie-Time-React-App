@@ -8,6 +8,7 @@ const HomeScreen = ({navigation, route}) => {
     const image = { uri: "https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2018/03/13153742/RT_300EssentialMovies_700X250.jpg" };
     const [movieName,setName] = useState('');
     const [movieYear,setYear] = useState(null);
+    
     return (
       <View style={styles.mainView}>
         <ImageBackground source={image} resizeMode="stretch" style={styles.image}>

@@ -1,9 +1,10 @@
-import { NativeBaseProvider, extendTheme, themeTools } from 'native-base';
+
 import React, {useEffect,useState} from 'react';
 import { ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native';
 import {View, Text, StyleSheet,Image } from 'react-native';
 import { Card, ListItem, Button, Icon,Rating } from 'react-native-elements'
+import MovieCard from '../components/MovieCard';
 
 
 
@@ -16,17 +17,7 @@ const DetailsScreen = ({navigation, route}) => {
     return newStr;
   }
 
-  const theme = extendTheme({
-    components: {
-      Heading: {
-        baseStyle: (props) => {
-          return {
-            color: themeTools.mode('red.300', 'blue.300')(props),
-          };
-        },
-      },
-    },
-  });
+ 
   
   const arr = [1,2,3];
   useEffect(() =>{
@@ -46,60 +37,14 @@ const DetailsScreen = ({navigation, route}) => {
     
     return (
      
-          <View style={styles.mainView}>
+      <View style={styles.mainView}>
         <SafeAreaView>
           <ScrollView>
-          {
-            
-              <Card>
-                <Card.Title>{(movieDetails == null ? "" : movieDetails.Title)} (
-                  {(movieDetails == null ? "" : movieDetails.Released)}
-                )</Card.Title>
-                <Card.Divider/>
-                  <View>
-                    <Image
-                      style={{
-                        margin:'auto',
-                        width:300,
-                        height:350,
-                        marginLeft:'auto',
-                        marginRight: 'auto'
-                      }}
-                      resizeMode="stretch"
-                      source={{uri:(movieDetails == null ? "" : movieDetails.Poster)}}
-                    />
-                    <Card.Divider/>
-                      <Text style={{fontWeight:'bold'}}>Plot</Text>
-                    <Card.Divider/>
-                    <Text>{(movieDetails == null ? "" : movieDetails.Plot)}</Text>
-                    <Card.Divider/>
-                      <Text style={{fontWeight:'bold'}}>Director</Text>
-                    <Card.Divider/>
-                    <Text>{(movieDetails == null ? "" : movieDetails.Director)}</Text>
-                    <Card.Divider/>
-                      <Text 
-                      style={{
-                        fontWeight:'bold'
-                        }}>
 
-                         IMDB rating
-                         <Icon
-                          name='star'
-                          type='evilicon'
-                          color='#517fa4'
-                         />
-                      </Text>
-                      
-                      
-                    <Card.Divider/>
-                    <Rating showRating   imageSize={30} ratingCount={10} fractions="{1}" startingValue={(movieDetails == null ? 0 : movieDetails.imdbRating)} />
-                  </View>
-              </Card>
-          }
+            <MovieCard movieDetails={movieDetails}/>
+
           </ScrollView>
         </SafeAreaView>
-          
-          
       </View>
     
       

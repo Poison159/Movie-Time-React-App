@@ -13,7 +13,6 @@
     "@react-navigation/stack": "^6.0.6",
     "expo": "~42.0.1",
     "expo-status-bar": "~1.0.4",
-    "native-base": "^3.2.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
@@ -26,9 +25,7 @@
     "react-native-svg": "12.1.1",
     "react-native-vector-icons": "^8.1.0",
     "react-native-web": "~0.13.12",
-    "react-string-replace": "^0.4.4",
-    "styled-components": "^5.3.1",
-    "styled-system": "^5.1.5"
+    "react-string-replace": "^0.4.4"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"
